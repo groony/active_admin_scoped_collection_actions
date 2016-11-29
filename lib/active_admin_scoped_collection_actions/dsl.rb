@@ -58,7 +58,7 @@ module ActiveAdminScopedCollectionActions
           errors = []
           scoped_collection_records.find_each do |record|
             unless destroy_resource(record)
-              errors << "#{record.attributes[resource_class.primary_key]} | Cant be destroyed}"
+              errors << "#{record.attributes[resource_class.primary_key]} | I18n.t('active_admin.scoped_collection_actions.errors.cant_be_destroyed')}"
             end
           end
           if errors.empty?

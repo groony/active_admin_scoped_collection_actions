@@ -6,6 +6,7 @@ ru:
         confirm: 'Вы уверены?'
       errors:
         access_denied: 'Доступ запрещен'
+        cant_be_destroyed: 'Не может быть удален'
       notices:
         batch_update_done: 'Пакетное обновление выполнено'
         batch_destroy_done: 'Пакетное удаление выполнено'

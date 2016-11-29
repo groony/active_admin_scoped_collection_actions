@@ -6,6 +6,7 @@ ru:
         confirm: 'Are you sure?'
       errors:
         access_denied: 'Access denied'
+        cant_be_destroyed: 'Cant be destroyed'
       notices:
         batch_update_done: 'Batch update done'
         batch_destroy_done: 'Batch destroy done'
