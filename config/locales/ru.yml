@@ -13,3 +13,5 @@ ru:
       titles:
         update_batch: 'Пакетное обновление'
         delete_batch: 'Пакетное удаление'
+    sidebars:
+      collection_actions: 'Действия по коллекции'
