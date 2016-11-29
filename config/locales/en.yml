@@ -1,0 +1,14 @@
+ru:
+  active_admin:
+    scoped_collection_actions:
+      sidebar:
+        description: 'This batch operations affect selected records. Or if none is selected, it will involve all records by current filters and scopes.'
+        confirm: 'Are you sure?'
+      errors:
+        access_denied: 'Access denied'
+      notices:
+        batch_update_done: 'Batch update done'
+        batch_destroy_done: 'Batch destroy done'
+      titles:
+        update_batch: 'Update batch'
+        delete_batch: 'Delete batch'

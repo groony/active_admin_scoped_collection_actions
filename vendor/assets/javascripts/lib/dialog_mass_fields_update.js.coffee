@@ -10,9 +10,8 @@ ActiveAdmin.dialogMassFieldsUpdate = (message, inputs, callback)->
 
     klass = if type is 'datepicker' then type else ''
     html += """<li>
-      <input type='checkbox' class='mass_update_protect_fild_flag' value='Y' id="mass_update_dialog_#{name}" />
       <label for="mass_update_dialog_#{name}"> #{name.charAt(0).toUpperCase() + name.slice(1)}</label>
-      <#{wrapper} name="#{name}" class="#{klass}" type="#{type}" disabled="disabled">""" +
+      <#{wrapper} name="#{name}" class="#{klass}" type="#{type}">""" +
         (if opts then (
           for v in opts
             $elem = $("<#{elem}/>")
@@ -40,15 +39,9 @@ ActiveAdmin.dialogMassFieldsUpdate = (message, inputs, callback)->
     maxHeight: window.innerHeight - window.innerHeight * 0.1,
     open: ->
       $('body').trigger 'mass_update_modal_dialog:after_open', [form]
-      $('.mass_update_protect_fild_flag').on 'change', (e) ->
-        if this.checked
-          $(e.target).next().next().removeAttr('disabled').trigger("chosen:updated")
-        else
-          $(e.target).next().next().attr('disabled', 'disabled').trigger("chosen:updated")
     buttons:
       OK: (e)->
         $(e.target).closest('.ui-dialog-buttonset').html('<span>Processing. Please wait...</span>')
         callback $(@).serializeObject()
       Cancel: ->
-        $('.mass_update_protect_fild_flag').off('change')
         $(@).dialog('close').remove()

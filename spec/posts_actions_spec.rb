@@ -25,10 +25,8 @@ describe 'posts index', type: :feature, js: true do
     before do
       page.find('#collection_actions_sidebar_section button', text: 'Update').click
       page.within ('body>.active_admin_dialog_mass_update_by_filter') do
-        page.find('input#mass_update_dialog_body').click
         page.find('input[name="body"]').set(new_body_text)
 
-        page.find('input#mass_update_dialog_author_id').click
         page.find('select[name="author_id"]').select(new_author.name)
         page.find('button', text: 'OK').click
       end

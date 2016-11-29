@@ -1,0 +1,14 @@
+ru:
+  active_admin:
+    scoped_collection_actions:
+      sidebar:
+        description: 'Пакетные операции влияют на выбранные записи. Или, если не выбран ни один, то изменения будут применены ко всем записям с помощью текущих фильтров.'
+        confirm: 'Вы уверены?'
+      errors:
+        access_denied: 'Доступ запрещен'
+      notices:
+        batch_update_done: 'Пакетное обновление выполнено'
+        batch_destroy_done: 'Пакетное удаление выполнено'
+      titles:
+        update_batch: 'Пакетное обновление'
+        delete_batch: 'Пакетное удаление'

@@ -3,10 +3,10 @@ module ActiveAdminScopedCollectionActions
 
     def scoped_collection_action(name, options = {}, &block)
       if name == :scoped_collection_destroy
-        options[:title] = 'Delete batch' if options[:title].nil?
+        options[:title] = I18n.t('active_admin.scoped_collection_actions.titles.delete_batch') if options[:title].nil?
         add_scoped_collection_action_default_destroy(options, &block)
       elsif name == :scoped_collection_update
-        options[:title] = 'Update batch' if options[:title].nil?
+        options[:title] = I18n.t('active_admin.scoped_collection_actions.titles.update_batch') if options[:title].nil?
         add_scoped_collection_action_default_update(options, &block)
       else
         batch_action(name, if: proc { false }, &block)
@@ -19,7 +19,7 @@ module ActiveAdminScopedCollectionActions
     def add_scoped_collection_action_default_update(options, &block)
       batch_action :scoped_collection_update, if: proc { false } do
         unless authorized?(:batch_edit, resource_class)
-          flash[:error] = 'Access denied'
+          flash[:error] = I18n.t('active_admin.scoped_collection_actions.errors.access_denied')
           render nothing: true, status: :no_content and next
         end
         if !params.has_key?(:changes) || params[:changes].empty?
@@ -36,7 +36,7 @@ module ActiveAdminScopedCollectionActions
             end
           end
           if errors.empty?
-            flash[:notice] = 'Batch update done'
+            flash[:notice] = I18n.t('active_admin.scoped_collection_actions.notices.batch_update_done')
           else
             flash[:error] = errors.join(". ")
           end
@@ -49,7 +49,7 @@ module ActiveAdminScopedCollectionActions
     def add_scoped_collection_action_default_destroy(_, &block)
       batch_action :scoped_collection_destroy, if: proc { false } do |_|
         unless authorized?(:batch_destroy, resource_class)
-          flash[:error] = 'Access denied'
+          flash[:error] = I18n.t('active_admin.scoped_collection_actions.errors.access_denied')
           render nothing: true, status: :no_content and next
         end
         if block_given?
@@ -62,7 +62,7 @@ module ActiveAdminScopedCollectionActions
             end
           end
           if errors.empty?
-            flash[:notice] = 'Batch destroy done'
+            flash[:notice] = I18n.t('active_admin.scoped_collection_actions.notices.batch_destroy_done')
           else
             flash[:error] = errors.join(". ")
           end

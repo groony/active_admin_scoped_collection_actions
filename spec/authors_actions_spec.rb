@@ -35,7 +35,6 @@ describe 'authors index', type: :feature, js: true do
 
       page.find('#collection_actions_sidebar_section button', text: 'Update').click
       page.within ('body>.active_admin_dialog_mass_update_by_filter') do
-        page.find('input#mass_update_dialog_birthday').click
         page.find('input[name="birthday"]').click
       end
       page.find('.ui-datepicker .ui-datepicker-days-cell-over.ui-datepicker-today', visible: true).click
